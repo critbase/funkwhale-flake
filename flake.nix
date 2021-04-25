@@ -17,10 +17,10 @@
       overlay = final: prev: {
 
         requests-http-signature =
-          nixpkgs.pkgs.python39Packages.requests-http-signature.overrideAttrs
+          nixpkgs.legacyPackages.${prev.system}.python39Packages.requests-http-signature.overrideAttrs
           (attrs: {
             propagatedBuildInputs = [
-              nixpkgs.legacyPackages.${prev.systems}.python39Packages.cryptography
+              nixpkgs.legacyPackages.${prev.system}.python39Packages.cryptography
             ];
           });
         funkwhale-front = final.stdenv.mkDerivation {
