@@ -50,7 +50,7 @@
           });
 
         django-cacheops = with final;
-          with pkgs.python38.pkgs;
+          with pkgs.python39.pkgs;
           (buildPythonPackage rec {
             pname = "django-cacheops";
             version = "5.1";
