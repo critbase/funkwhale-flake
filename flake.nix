@@ -16,6 +16,11 @@
     in {
       overlay = final: prev: {
 
+        requests-http-signature =
+          nixpkgs.pkgs.python39Packages.requests-http-signature.overrideAttrs
+          (attrs: {
+            checkInputs = [ nixpkgs.pkgs.python39Packages.cryptography ];
+          });
         funkwhale-front = final.stdenv.mkDerivation {
           name = "funkwhale-front";
           src = ./funkwhale-front;
