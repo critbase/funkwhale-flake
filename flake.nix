@@ -21,6 +21,7 @@
           (attrs: {
             propagatedBuildInputs = [
               nixpkgs.legacyPackages.${prev.system}.python39Packages.cryptography
+              nixpkgs.legacyPackages.${prev.system}.python39Packages.requests
             ];
           });
         funkwhale-front = final.stdenv.mkDerivation {
