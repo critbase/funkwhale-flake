@@ -55,7 +55,7 @@ let
     ps.pytz
     ps.redis
     ps.requests
-    ps.requests-http-signature
+    pkgs.requests-http-signature
     ps.service-identity
     ps.unidecode
     ps.unicode-slugify
