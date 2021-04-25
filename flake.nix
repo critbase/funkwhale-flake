@@ -19,8 +19,9 @@
         requests-http-signature =
           nixpkgs.pkgs.python39Packages.requests-http-signature.overrideAttrs
           (attrs: {
-            propagatedBuildInputs =
-              [ nixpkgs.pkgs.python39Packages.cryptography ];
+            propagatedBuildInputs = [
+              nixpkgs.legacyPackages.${prev.systems}.python39Packages.cryptography
+            ];
           });
         funkwhale-front = final.stdenv.mkDerivation {
           name = "funkwhale-front";
