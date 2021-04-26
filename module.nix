@@ -6,6 +6,7 @@ let
   pythonEnv = (pkgs.python39.override {
     packageOverrides = self: super: rec { django = self.django_2; };
   }).withPackages (ps: [
+    pkgs.ffmpeg
     pkgs.django-cacheops
     ps.aioredis
     ps.aiohttp
