@@ -6,7 +6,7 @@ let
   pythonEnv = (pkgs.python3.override {
     packageOverrides = self: super: rec {
       django = self.django_2;
-      djangorestframework-jwt = self.djangorestframework-jwt.overrideAttrs
+      djangorestframework-jwt = super.djangorestframework-jwt.overrideAttrs
         (attrs: {
           propagatedBuildInputs = [
             pkgs.python3Packages.pyjwt
