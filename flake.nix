@@ -24,6 +24,13 @@
               nixpkgs.legacyPackages.${prev.system}.python3Packages.requests
             ];
           });
+
+        #djangorestframework-jwt = with final;
+        #  with pkgs.python3.pkgs;
+        #  (buildPythonPackage rec {
+        #    pname = "djangorestframework-jwt";
+        #    version = "";
+        #  });
         funkwhale-front = final.stdenv.mkDerivation {
           name = "funkwhale-front";
           src = ./funkwhale-front;
