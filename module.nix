@@ -4,7 +4,17 @@ with lib;
 
 let
   pythonEnv = (pkgs.python3.override {
-    packageOverrides = self: super: rec { django = self.django_2; };
+    packageOverrides = self: super: rec {
+      django = self.django_2;
+      djangorestframework-jwt = self.djangorestframework-jwt.overrideAttrs
+        (attrs: {
+          propagatedBuildInputs = [
+            pkgs.python3Packages.pyjwt
+            pkgs.python3Packages.django_2
+            pkgs.python3Packages.djangorestframework
+          ];
+        });
+    };
   }).withPackages (ps: [
     pkgs.ffmpeg
     pkgs.django-cacheops
