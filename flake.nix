@@ -17,11 +17,11 @@
       overlay = final: prev: {
 
         requests-http-signature =
-          nixpkgs.legacyPackages.${prev.system}.python39Packages.requests-http-signature.overrideAttrs
+          nixpkgs.legacyPackages.${prev.system}.python3Packages.requests-http-signature.overrideAttrs
           (attrs: {
             propagatedBuildInputs = [
-              nixpkgs.legacyPackages.${prev.system}.python39Packages.cryptography
-              nixpkgs.legacyPackages.${prev.system}.python39Packages.requests
+              nixpkgs.legacyPackages.${prev.system}.python3Packages.cryptography
+              nixpkgs.legacyPackages.${prev.system}.python3Packages.requests
             ];
           });
         funkwhale-front = final.stdenv.mkDerivation {
@@ -58,7 +58,7 @@
           });
 
         django-cacheops = with final;
-          with pkgs.python39.pkgs;
+          with pkgs.python3.pkgs;
           (buildPythonPackage rec {
             pname = "django-cacheops";
             version = "5.1";

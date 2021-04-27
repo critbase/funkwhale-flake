@@ -3,7 +3,7 @@
 with lib;
 
 let
-  pythonEnv = (pkgs.python39.override {
+  pythonEnv = (pkgs.python3.override {
     packageOverrides = self: super: rec { django = self.django_2; };
   }).withPackages (ps: [
     pkgs.ffmpeg
